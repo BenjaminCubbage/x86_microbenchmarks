@@ -7,13 +7,13 @@
  * Repeat string x times
  */
 
-#define REP2(x)   x       x
-#define REP4(x)   REP2(x) REP2(x)
-#define REP8(x)   REP4(x) REP4(x)
-#define REP16(x)  REP8(x) REP8(x)
-#define REP32(x)  REP16(x) REP16(x)
-#define REP64(x)  REP32(x) REP32(x)
-#define REP128(x) REP64(x) REP64(x)
+#define REP2(x)   x         x
+#define REP4(x)   REP2(x)   REP2(x)
+#define REP8(x)   REP4(x)   REP4(x)
+#define REP16(x)  REP8(x)   REP8(x)
+#define REP32(x)  REP16(x)  REP16(x)
+#define REP64(x)  REP32(x)  REP32(x)
+#define REP128(x) REP64(x)  REP64(x)
 #define REP256(x) REP128(x) REP128(x)
 #define REP512(x) REP256(x) REP256(x)
 
@@ -190,15 +190,15 @@ int main() {
     double imull_indep_4_cycles = tick_cycle_ratio * imull_indep_4_ticks;
     double imull_indep_8_cycles = tick_cycle_ratio * imull_indep_8_ticks;
 
-    std::cout << "dependent ticks/mul:              " << imull_dep_ticks     << '\n';
-    std::cout << "independent ticks/mul (2 indep.): " << imull_indep_2_ticks << '\n';
-    std::cout << "independent ticks/mul (4 indep.): " << imull_indep_4_ticks << '\n';
-    std::cout << "independent ticks/mul (8 indep.): " << imull_indep_8_ticks << '\n';
+    std::cout << "dependent ticks/imul:              " << imull_dep_ticks     << '\n';
+    std::cout << "independent ticks/imul (2 indep.): " << imull_indep_2_ticks << '\n';
+    std::cout << "independent ticks/imul (4 indep.): " << imull_indep_4_ticks << '\n';
+    std::cout << "independent ticks/imul (8 indep.): " << imull_indep_8_ticks << '\n';
     std::cout << '\n';
-    std::cout << "dependent cycles/mul:                   " << imull_dep_cycles     << '\n';
-    std::cout << "est. independent cycles/mul (2 indep.): " << imull_indep_2_cycles << '\n';
-    std::cout << "est. independent cycles/mul (4 indep.): " << imull_indep_4_cycles << '\n';
-    std::cout << "est. independent cycles/mul (8 indep.): " << imull_indep_8_cycles << '\n';
+    std::cout << "dependent cycles/imul:                   " << imull_dep_cycles     << '\n';
+    std::cout << "est. independent cycles/imul (2 indep.): " << imull_indep_2_cycles << '\n';
+    std::cout << "est. independent cycles/imul (4 indep.): " << imull_indep_4_cycles << '\n';
+    std::cout << "est. independent cycles/imul (8 indep.): " << imull_indep_8_cycles << '\n';
 
     std::cout << "\n\n";
     double leal_dep_ticks     = adjusted_ticks_per_instruction(estimate_mode(measure_leal_dependent_once),     overhead);
